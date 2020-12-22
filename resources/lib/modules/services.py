@@ -473,6 +473,10 @@ class services(modules.Module):
     def do_wizard(self):
         oe.winOeMain.set_wizard_title(oe._(32311))
 
+        # Enable ssh
+        self.struct['ssh']['settings']['ssh_autostart']['value'] = '1'
+        self.initialize_ssh()
+
         # Enable samba
         self.struct['samba']['settings']['samba_autostart']['value'] = '1'
         self.initialize_samba()
